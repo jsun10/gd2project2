@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+    
+    .flip-container, 
+.front,
+.back {
+   
+	width: 350px;
+	height: 500px;
+}
+
+.flip-container {
+    margin-top: 30px;
+     margin-left: 450px;
+	perspective: 1000px; /*  how "far away" the viewer is from the flip */
+}
+	/* flip the pane when hovered */
+.flip-container:hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+
+/* flip speed goes here */
+.flipper {
+	transition: 1s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;	
+}
+
+/* back, initially hidden pane */
+.back {
+	background: rgba(150,150,100,.8);
+	transform: rotateY(180deg);
+}
+    
+    
+    img {
+        
+        z-index:-1;
+        
+        
+        
+    }
+    
+    
+    p {
+        
+        margin-top: -360px;
+        margin-left: 50px;
+      
+        color:white;
+        font-size: 2.2em;
+        
+
+text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+        
+        
+        
+    }
+</style>
+</head>
+<body>
+
+
+<div class="flip-container">
+	<div class="flipper">
+		<div class="front">
+			<img src="webimg6.jpg" width="350px" height="500px">
+		</div>
+		<div class="back">
+            <img src="webimg6fuben77.jpg" width="350px" height="500px">
+			    <p>wake up<br> at <br>10:00<br> in<br> the<br> morning.</p>
+  
+		</div>
+	</div>
+</div>
+
+      
+  
+
+</body>
+</html>
