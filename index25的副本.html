@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>myday</title>
+    
+  
+    
+
+    
+      
+  
+    <style>
+      
+        
+       
+        
+        div {
+            
+            display:block;
+            
+            
+        }
+
+* {
+	margin: 50;
+	padding: 0;
+}
+body {
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 8fr 1fr;
+	grid-template-rows: 1fr 8fr 1fr;
+	grid-template-areas: 
+		".    .    ."
+		".	 wrap  ."
+		".    .    .";
+}
+#wrapper {
+     margin-top: 15px;
+	grid-area: wrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+  
+}
+
+
+
+#wrapper ul {
+    list-style: none;
+	display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar; 
+	height: 100%;
+}
+#wrapper ul li {
+	height: 100%;
+	flex:0 0 auto;
+    display:inline-block;
+    position:relative;
+}
+#wrapper ul li img {height: 400px;
+        width:100px;
+        margin:2px;} 
+
+
+
+        
+        
+      
+
+#wrapper .n{
+	height: 70vh;
+	
+	cursor: pointer;
+    overflow-x:scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+    
+	
+  
+}
+
+        
+         .progressbar-overlay {
+            position: absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background: white;
+             z-index:2;
+             
+            opacity:1;
+            animation-name: fade;
+            animation-duration: 1s;
+            animation-fill-mode:both;
+            animation-delay: 3s;
+            pointer-events: none;
+           
+        }
+        
+        #progressbar{
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  background: rgba(159, 159, 159, 0.5);
+  border-radius: 10px;
+  margin: -20px 0 0 -100px;
+  padding: 2px;
+}
+#loading{
+  transition: all 500ms ease;
+  height: 10px;
+  width: calc(100% - 10px);
+  border-radius: 8px;
+  background: #474747;
+  position: absolute;
+  margin: 3px;
+  display: inline-block;
+  animation: load 4s ease infinite;
+}
+#load{
+  font-family: monospace;
+  font-weight: bold;
+    font-size: 2em;
+  text-align: center;
+  margin-top: -30px;
+}
+
+@keyframes load{
+  0%{
+    width: 2%;
+  }
+  10%{
+    width: 10%;
+  }
+}
+        
+        
+       @keyframes fade {
+            
+            0% {
+                
+                opacity:1;
+                
+            }
+            100%{
+                
+                opacity:0;
+                
+                
+                
+                
+            }
+            
+            
+        }    
+        
+        
+        .img1{
+            
+            margin-top: 20px;
+            margin-left: 20px;
+            
+            
+            
+            
+            
+        }     
+        .n .content{
+            
+    
+    opacity:0;
+    position: absolute;
+	bottom: 55px;
+    
+    margin-left: 2px;        
+	-webkit-transition: all 0.4s;
+    transition: all 0.4s;
+   background-color: rgba(221,221,221,0.4);      
+     width:100px;
+     Height:400px;       
+        }
+        
+       
+     
+
+
+    .n .content h2 {
+	
+	color: lightskyblue;
+	font-size: 8.5em;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+}
+        
+         .n:hover .content{
+            
+           
+             
+                opacity:1;
+            
+            
+            
+        }
+        
+        
+        h2 {
+            
+            margin-top: 305px;
+            margin-left: 20px;
+            text-overflow:clip;
+            overflow: hidden;
+white-space: nowrap;
+            height:95px;
+            
+
+            
+            
+            
+        
+        }
+
+        
+         .n .content h3 {
+	
+	color: lightskyblue;
+	font-size: 7.5em;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 0.5px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h3 {
+            
+            margin-top: 10px;
+            margin-left: 3px;
+            text-overflow:clip;
+            overflow: hidden;
+            height:97px;
+            width:91px;
+            
+            -webkit-transform: rotate(90deg);
+
+            
+            
+            
+            
+        
+        }
+        
+        
+        .n .content h4 {
+	
+	color: transparent;
+	font-size: 4em;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 1px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h4 {
+            
+            margin-top: 30px;
+            
+            margin-left: 40px;
+            text-overflow:clip;
+                white-space: nowrap; 
+           
+
+            
+            
+            width: 20px; 
+            
+            -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: lightskyblue;
+          
+            -webkit-transform: rotate(90deg);
+            
+            
+            
+            
+        
+        }
+     
+         .n .content h5 {
+	
+	color: skyblue;
+	font-size: 7.2em;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.04px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h5 {
+            
+            margin-top: 320px;
+            margin-left:-3.8px;
+            text-overflow:clip;
+            overflow-y: hidden;
+             
+            height:80px;
+            
+            
+            
+            
+            
+        
+        }
+        
+        
+
+        .n .content h3 {
+	
+	color: lightskyblue;
+	font-size: 8.8em;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 0.5px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h3 {
+            
+            margin-top: 10px;
+            margin-left: -12px;
+            text-overflow:clip;
+            overflow: hidden;
+            white-space: nowrap;
+            height:91px;
+            width:115px;
+            
+            
+            -webkit-transform: rotate(90deg);
+
+            
+            
+            
+            
+        
+        }
+        
+        .n .content h5 {
+	
+	color: skyblue;
+	font-size: 8em;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.04px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h5 {
+            
+            margin-top: 320px;
+            margin-left:-3.8px;
+            text-overflow:clip;
+            overflow-y: hidden;
+             
+            height:80px;
+            
+            
+            
+            
+            
+        
+        }
+        
+        
+        .n .content h3 {
+	
+	color: lightskyblue;
+	font-size: 8.8em;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 0.5px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h3 {
+            
+            margin-top: 10px;
+            margin-left: -12px;
+            text-overflow:clip;
+            overflow: hidden;
+            white-space: nowrap;
+            height:91px;
+            width:115px;
+            
+            
+            -webkit-transform: rotate(90deg);
+
+            
+            
+            
+            
+        
+        }
+        
+        
+        
+        
+
+         .n .content h3 {
+	
+	color: lightskyblue;
+	font-size: 8.8em;
+    font-family: 'Helvetica', sans-serif;
+    letter-spacing: 0.5px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h3 {
+            
+            margin-top: 10px;
+            margin-left: -12px;
+            text-overflow:clip;
+            overflow: hidden;
+            white-space: nowrap;
+            height:91px;
+            width:115px;
+            
+            
+            -webkit-transform: rotate(90deg);
+
+            
+            
+            
+            
+        
+        }
+     
+        
+        .n .content h5 {
+	
+	color: skyblue;
+	font-size: 8em;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.04px;
+}
+        
+         .n:hover .content{
+            
+            
+             
+                opacity:1;
+            
+            
+            
+        }
+
+        
+        h5 {
+            
+            margin-top: 320px;
+            margin-left:-3.8px;
+            text-overflow:clip;
+            overflow-y: hidden;
+             
+            height:80px;
+            
+            
+            
+            
+            
+        
+        }
+        
+        
+        
+        
+
+        
+       
+
+      
+        
+        
+        
+        
+       
+  
+        
+  
+        
+    </style>
+    </head>
+    
+    <body>
+        
+         <div class="progressbar-overlay">
+<div id="progressbar">
+  <span id="loading"></span>
+  <div id="load">Start My Day</div>
+</div>
+        </div>
+        
+        
+        
+        
+            
+        <img src="webimg10.png" width="170px;" class="img1">        
+      
+        
+        
+		<div id="wrapper">
+	<ul>
+        <li class="n">
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index10.html"><img src="webimg6fuben.jpg">
+				<div class="content">
+						<h2>10</h2>	</div></li></a>
+        
+            
+           
+						
+					
+            
+            
+				<li class="n">
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index11.html"><img src="unnameds%E5%89%AF%E6%9C%AC.jpg">
+                    <div class="content">
+						<h3>11</h3>
+                    </div></li></a>
+       
+                    
+                
+					
+            
+				<li class="n">
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index12.html"><img src="unnamed98fuben.jpg">
+            
+            <div class="content">
+						<h4>LUNCH TIME</h4>
+                    </div></li></a>
+       
+                      
+                
+					
+              
+				<li class="n">
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index13.html"><img src="unnamed345fuben.jpg">
+            
+            <div class="content">
+						<h5>13</h5>
+                    </div></li></a>
+        
+                    
+                
+					
+          
+				<li class="n">  
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index14.html"><img src="unnamed0909fuben.jpg">
+            
+            <div class="content">
+						<h3>14</h3>
+                    </div></li></a>
+       
+                    
+               
+					
+           
+				<li class="n">
+		<a href="file:///Users/sunyuz/Desktop/webproject2/index15.html"><img src="unnamed099%E5%89%AF%E6%9C%AC.jpg">
+            <div class="content">
+						<h5>15</h5>
+                    </div></li></a>
+        
+                    
+            
+					
+           
+				<li class="n">
+       <a href="file:///Users/sunyuz/Desktop/webproject2/index16.html"><img src="webimg17fuben.jpg">
+           <div class="content">
+						<h3>16</h3>
+                    </div></li> </a>
+       
+                   
+               
+					
+            
+				<li class="n">
+       <a href="file:///Users/sunyuz/Desktop/webproject2/index17.html"><img src="IMG-7616fuben.jpg"><div class="content">
+						<h5>17</h5>
+                    </div></li></a>
+        
+                    
+                
+					
+           
+				<li class="n">
+       <a href="file:///Users/sunyuz/Desktop/webproject2/index18.html"><img src="unnamed09090fuben.jpg"><div class="content">
+						<h3>18</h3>
+                    </div></li></a>
+       
+                	
+					
+           
+				<li class="n">
+      <a href="file:///Users/sunyuz/Desktop/webproject2/index19.html"><img src="webimg3fuben.jpg"><div class="content">
+                    	<h4>Dinner Break</h4>
+                    </div></li></a>
+        
+                    
+               	
+				
+        
+				<li class="n">
+        <a href="file:///Users/sunyuz/Desktop/webproject2/index20.html"><img src="webimg8fuben.jpg">
+                    <div class="content">
+                    <h5>20</h5>
+                    </div></li></a>
+    
+                    
+                	
+					
+                  
+				<li class="n">
+        <a href="file:///Users/sunyuz/Desktop/webproject2/index21.html"><img src="unnamed00--fuben.jpg"><div class="content">
+                    <h3>21</h3>
+                    </div></li></a>
+       
+            
+                	
+					
+				<li class="n">
+        <a href="file:///Users/sunyuz/Desktop/webproject2/index22.html"><img src="webimg4fuben.jpg">
+                    <div class="content">
+                    <h2>22</h2>
+                    </div></li></a>
+        
+                    
+                	
+					
+				<li class="n">
+        <a href="file:///Users/sunyuz/Desktop/webproject2/index23.html"><img src="webimg7fuben.jpg">
+                    <div class="content">
+                    <h3>23</h3>
+                    </div></li></a>
+      
+            
+                
+					
+           
+				<li class="n">
+        <a href="file:///Users/sunyuz/Desktop/webproject2/index24.html"><img src="unname78fuben.jpg">
+                    <div class="content">
+                    <h4>Sleep Time</h4>
+                    </div></li></a>
+      
+            
+                	
+					
+	</ul>
+</div>  
+
+  
+
+       
+             
+
+      
+        
+        
+    </body>
+</html>
